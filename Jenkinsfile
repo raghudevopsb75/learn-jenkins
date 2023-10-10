@@ -23,10 +23,17 @@ pipeline {
 
     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
   }
+  //triggers { cron('00 08 01 * *') }.
+
 
   stages {
 
     stage('One') {
+      input {
+        message "Should we continue?"
+        ok "Yes, we should."
+        submitter "admin"
+      }
       steps {
         sh 'echo One'
         sh ' echo $SAMPLE_URL'
