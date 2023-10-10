@@ -26,7 +26,7 @@ pipeline {
   }
 
   post {
-    alaways {
+    always {
       echo 'Sending Email'
     }
   }
