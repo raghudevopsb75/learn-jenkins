@@ -5,6 +5,7 @@ pipeline {
 
   environment {
     SAMPLE_URL = "https://sample.com"
+    SSH = credentials("ssh")
   }
 
 
@@ -14,6 +15,7 @@ pipeline {
       steps {
         sh 'echo One'
         sh ' echo ${SAMPLE_URL}'
+        sh 'echo  $SSH'
       }
     }
 
