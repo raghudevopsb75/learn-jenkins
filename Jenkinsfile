@@ -1,11 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    node { label 'workstation' }
+  }
+
+  environment {
+    SAMPLE_URL = "https://sample.com"
+  }
+
 
   stages {
 
     stage('One') {
       steps {
         sh 'echo One'
+        sh ' echo ${SAMPLE_URL}'
       }
     }
 
@@ -15,6 +23,12 @@ pipeline {
       }
     }
 
+  }
+
+  post {
+    alaways {
+      echo 'Sending Email'
+    }
   }
 
 }
